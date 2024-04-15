@@ -49,6 +49,12 @@ g2.addEdge("ddr", "eLed");
 g2.addEdge("cooler", "eLed");
 g2.addEdge("cooler", "ddr");
 
+//EXEMPLO 3: Adicionando arestas
+const g3 = new Graph();
+g3.addEdge("agp", "bateria");
+g3.addEdge("bateria", "carro");
+g3.addEdge("carro", "agp");
+
 app.use('/backend/image', express.static(__dirname + '/image'));
 
 console.log(__dirname)
@@ -56,13 +62,17 @@ console.log(__dirname)
 app.get('/', (req, res) => {
     const result = g.topologicalSort();
     const result2 = g2.topologicalSort();
+    const result3 = g3.topologicalSort();
     res.send(`
         <h2>Trabalho 1 - Projeto de Algoritmos: Grafos 1 </h2><br>
         <img src="/backend/image/e1.png" width="35%"/><br>
         <b>Resultado da ordenação topológica (Exemplo 1):</b> ${result} <br>
 
         <img src="/backend/image/e2.png" width="35%"/><br>
-        <b>Resultado da ordenação topológica (Exemplo 2):</b> ${result2}
+        <b>Resultado da ordenação topológica (Exemplo 2):</b> ${result2} <br>
+
+        <img src="/backend/image/e3.png" width="35%"/><br>
+        <b>Resultado da ordenação topológica (Exemplo 3):</b> ${result3}
         `);
   });
   

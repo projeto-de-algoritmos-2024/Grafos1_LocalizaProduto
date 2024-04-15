@@ -112,7 +112,7 @@ class Graph {
                 }
             }
         } else {
-            console.log("tem ciclo no grafo");
+            result[0] = "tem ciclo no grafo";
             return;
         }
     }
